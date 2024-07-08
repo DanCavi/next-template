@@ -29,6 +29,9 @@ import { getMenu } from 'store/slices/menu';
 // import { Auth0Provider as AuthProvider } from '../contexts/Auth0Context';
 import { AWSCognitoProvider as AuthProvider } from 'contexts/AWSCognitoContext';
 
+// speed-insights import
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 // types
 type LayoutProps = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -62,6 +65,7 @@ function MyApp({ Component, pageProps }: AppProps & Props) {
                     <>
                       {getLayout(<Component {...pageProps} />)}
                       <Snackbar />
+                      <SpeedInsights />
                     </>
                   </AuthProvider>
                 </NavigationScroll>
